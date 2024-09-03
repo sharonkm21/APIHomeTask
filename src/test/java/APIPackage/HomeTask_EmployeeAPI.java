@@ -27,6 +27,10 @@ public class HomeTask_EmployeeAPI
 
         // Verify the response
         Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.getStatusLine(), "HTTP/1.1 200 OK");
+        Assert.assertEquals(response.getHeader("Content-Type"), "application/json");
+        Assert.assertEquals(response.getHeader("Content-Encoding"), "gzip");
+        Assert.assertEquals(response.jsonPath().get("status"),"success");
     }
 
     @Test(priority = 2,description = "Create Employee",dependsOnMethods = "getAllEmployeesAndVerifyCount")
@@ -42,6 +46,10 @@ public class HomeTask_EmployeeAPI
                 .post("/create");
         System.out.println(response.getBody().asString());
         Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.getStatusLine(), "HTTP/1.1 200 OK");
+        Assert.assertEquals(response.getHeader("Content-Type"), "application/json");
+        Assert.assertEquals(response.getHeader("Content-Encoding"), "gzip");
+        Assert.assertEquals(response.jsonPath().get("status"),"success");
 
         // Verify the employee is created successfully
         createdEmployeeId = response.jsonPath().getInt("data.id");
@@ -59,7 +67,11 @@ public class HomeTask_EmployeeAPI
         System.out.println(response.getBody().asString());
         // Verify the response
         Assert.assertEquals(response.getStatusCode(), 200);
-
+        Assert.assertEquals(response.getStatusLine(), "HTTP/1.1 200 OK");
+        Assert.assertEquals(response.getHeader("Content-Type"), "application/json");
+        Assert.assertEquals(response.getHeader("Content-Encoding"), "gzip");
+        Assert.assertEquals(response.jsonPath().get("status"),"success");
+        
         // Verify employee details
         Assert.assertEquals(response.jsonPath().getString("data.name"), "John Doe");
         Assert.assertEquals(response.jsonPath().getString("data.salary"), "5000");
@@ -81,6 +93,10 @@ public class HomeTask_EmployeeAPI
         System.out.println(response.getBody().asString());
         // Verify the response
         Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.getStatusLine(), "HTTP/1.1 200 OK");
+        Assert.assertEquals(response.getHeader("Content-Type"), "application/json");
+        Assert.assertEquals(response.getHeader("Content-Encoding"), "gzip");
+        Assert.assertEquals(response.jsonPath().get("status"),"success");
     }
 
     @Test(priority = 5,dependsOnMethods = "updateEmployeeDetailsAndVerify")
@@ -89,6 +105,10 @@ public class HomeTask_EmployeeAPI
         System.out.println(response.getBody().asString());
         // Verify the response
         Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.getStatusLine(), "HTTP/1.1 200 OK");
+        Assert.assertEquals(response.getHeader("Content-Type"), "application/json");
+        Assert.assertEquals(response.getHeader("Content-Encoding"), "gzip");
+        Assert.assertEquals(response.jsonPath().get("status"),"success");
 
         // Verify updated employee details
         Assert.assertEquals(response.jsonPath().getString("data.name"), "John Doe Updated");
@@ -102,6 +122,10 @@ public class HomeTask_EmployeeAPI
         System.out.println(response.getBody().asString());
         // Verify the response
         Assert.assertEquals(response.getStatusCode(), 200);
+        Assert.assertEquals(response.getStatusLine(), "HTTP/1.1 200 OK");
+        Assert.assertEquals(response.getHeader("Content-Type"), "application/json");
+        Assert.assertEquals(response.getHeader("Content-Encoding"), "gzip");
+        Assert.assertEquals(response.jsonPath().get("status"),"success");
 
         // Verify the employee count decreased by 1
         Response allEmployeesResponse = RestAssured.get("/employees");
