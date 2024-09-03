@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Test Suite">
+    <listeners>
+        <listener class-name="UtilityPackage.ExtentReportListener" />
+    </listeners>
+    <test name="API Task 4 Test">
+        <classes>
+            <class name="APIPackage.JIRAAutomation" />
+        </classes>
+    </test>
+
+</suite>

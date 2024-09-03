@@ -14,7 +14,7 @@ import java.util.Map;
 
 import static org.hamcrest.Matchers.*;
 
-public class HomeTask_RestAssured extends BaseClass
+public class HomeTask_RestAssured
 {
     private static final Logger log = LoggerFactory.getLogger(HomeTask_RestAssured.class);
 
